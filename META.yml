@@ -1,0 +1,16 @@
+---
+name: DBIx-Class-WebForm
+version: 0.01
+author:
+  - 'Sebastian Riedel, C<sri@oook.de>'
+abstract: CRUD Methods For DBIx::Clas
+license: perl
+requires:
+  DBIx::Class: 0
+  Data::FormValidator: 0
+  HTML::Element: 0
+provides:
+  DBIx::Class::WebForm:
+    file: lib/DBIx/Class/WebForm.pm
+    version: 0.01
+generated_by: Module::Build version 0.2611

@@ -1,5 +1,5 @@
 NAME
-    DBIx::Class::WebForm - CRUD Methods For DBIx::Clas
+    DBIx::Class::WebForm - CRUD Methods For DBIx::Class
 
 SYNOPSIS
         use base 'DBIx::Class::WebForm';
@@ -20,7 +20,7 @@ METHODS
     $class->column_type($col)
 
 AUTHOR
-    Sebastian Riedel, "sri@oook.de"
+    Matt S. Trout Sebastian Riedel, "sri@oook.de"
 
 LICENSE
     This library is free software, you can redistribute it and/or modify it

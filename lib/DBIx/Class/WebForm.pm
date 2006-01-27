@@ -4,11 +4,11 @@ use strict;
 use warnings;
 use HTML::Element;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 NAME
 
-DBIx::Class::WebForm - CRUD Methods For DBIx::Clas
+DBIx::Class::WebForm - CRUD Methods For DBIx::Class
 
 =head1 SYNOPSIS
 
@@ -52,7 +52,10 @@ sub _run_create {
     my $them = bless {}, $class;
     my $cols = {};
     foreach my $col ( $them->columns ) {
-        $cols->{$col} = $results->valid($col);
+        if(defined($results->valid($col)))
+        {
+            $cols->{$col} = $results->valid($col);
+        }
     }
     return $class->create($cols);
 }
@@ -148,13 +151,17 @@ sub _to_select {
 
 sub column_type {
     my ( $class, $col ) = @_;
-    return $class->_columns->{$col}->{column_type};
+
+    return if(!$class->has_column($col));
+
+    return $class->column_info($col)->{data_type};
 }
 
 =back
 
 =head1 AUTHOR
 
+Matt S. Trout
 Sebastian Riedel, C<sri@oook.de>
 
 =head1 LICENSE
